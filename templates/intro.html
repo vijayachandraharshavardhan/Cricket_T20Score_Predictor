@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Welcome to Harsha's Cricket Predictions</title>
+    <style>
+        body, html { margin: 0; padding: 0; height: 100%; overflow: hidden; background: black; }
+        #intro-video { width: 100%; height: 100%; object-fit: cover; }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const video = document.getElementById("intro-video");
+
+            // When video ends, redirect to predictor page
+            video.addEventListener("ended", function() {
+                window.location.href = "/predict"; // Ensure this matches your Flask route
+            });
+        });
+    </script>
+</head>
+<body>
+    <video autoplay muted id="intro-video">
+        <source src="{{ url_for('static', filename='videos/intro.mp4') }}" type="video/mp4">
+        Your browser does not support HTML5 video.
+    </video>
+</body>
+</html>
